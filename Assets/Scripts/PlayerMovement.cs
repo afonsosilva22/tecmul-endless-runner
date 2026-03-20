@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 3;
-    public float horizontalSpeed = 4;
-    public float jumpForce = 5;
+    public float playerSpeed = 4;
+    public float horizontalSpeed = 5;
+    public float jumpForce = 7;
 
     private Rigidbody rb;
     private bool isGrounded = true;
@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Game Over!");
+            Time.timeScale = 0;
         }
     }
 }
