@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 4;
     public float horizontalSpeed = 5;
     public float jumpForce = 7;
+    public float leftBoundary = -6f;
+    public float rightBoundary = 6f;
 
     private Rigidbody rb;
     private bool isGrounded = true;
@@ -18,14 +20,20 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime, Space.World);
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
+            if (transform.position.x > leftBoundary)
+            {
+                transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
+            }
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime);
+            if (transform.position.x < rightBoundary)
+            {
+                transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
