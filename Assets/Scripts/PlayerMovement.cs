@@ -22,10 +22,12 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
         }
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime);
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -39,10 +41,17 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Game Over!");
-            Time.timeScale = 0;
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                if (contact.normal.y < 0.5f)
+                {
+                    Debug.Log("Game Over!");
+                    Time.timeScale = 0;
+                }
+            }
         }
     }
 }
