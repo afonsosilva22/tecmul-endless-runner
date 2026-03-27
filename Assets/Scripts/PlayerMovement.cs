@@ -4,16 +4,19 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 4;
     public float horizontalSpeed = 5;
-    public float jumpForce = 7;
+    public float jumpForce = 6;
     public float leftBoundary = -6f;
     public float rightBoundary = 6f;
 
     private Rigidbody rb;
     private bool isGrounded = true;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            animator.SetBool("isJumping", true);
         }
     }
 
@@ -48,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("isJumping", false);
         }
 
         if (collision.gameObject.CompareTag("Obstacle"))
