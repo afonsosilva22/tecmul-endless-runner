@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class DestroyTrigger : MonoBehaviour
 {
 
     public Transform player;
