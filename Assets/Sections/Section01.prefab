@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1699953974084268605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45972, y: 0.5, z: -9.00885}
+  m_LocalPosition: {x: 0.45972, y: 0.5, z: -17.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -514,8 +514,8 @@ GameObject:
   - component: {fileID: 6397822446912894370}
   - component: {fileID: 6328664082410254475}
   m_Layer: 0
-  m_Name: Section
-  m_TagString: Untagged
+  m_Name: Section01
+  m_TagString: Section
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
