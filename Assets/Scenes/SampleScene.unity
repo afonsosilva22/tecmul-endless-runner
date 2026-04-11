@@ -830,6 +830,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartingSection
       objectReference: {fileID: 0}
+    - target: {fileID: 4570888826324524930, guid: f73551e95599afc41833163359b6fe29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570888826324524930, guid: f73551e95599afc41833163359b6fe29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5570303337122036427, guid: f73551e95599afc41833163359b6fe29, type: 3}
       propertyPath: m_LocalPosition.z
       value: -18
