@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class DestroyTrigger : MonoBehaviour
+public class SectionDestroyer : MonoBehaviour
 {
-
     public Transform player;
     public float distanceBehind = 51f;
 

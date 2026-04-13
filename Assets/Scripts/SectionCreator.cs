@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SectionTrigger : MonoBehaviour
+public class SectionCreator : MonoBehaviour
 {
     public GameObject section;
     [SerializeField] private int zPos = 50;
