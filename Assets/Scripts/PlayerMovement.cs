@@ -1,8 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 4;
+    public float playerSpeed;
+    public float normalSpeed = 4f;
+    public float boostedSpeed = 8f;
     public float horizontalSpeed = 5;
     public float jumpForce = 6;
     public float leftBoundary = -6f;
@@ -11,12 +14,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded = true;
     private Animator animator;
+    private Coroutine speedCoroutine;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-
+        playerSpeed = normalSpeed;
     }
 
     void Update()
@@ -66,5 +70,24 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ActivateSpeedBoost(float duration)
+    {
+        if (speedCoroutine != null)
+        {
+            StopCoroutine(speedCoroutine);
+        }
+
+        speedCoroutine = StartCoroutine(SpeedBoost(duration));
+    }
+
+    IEnumerator SpeedBoost(float duration)
+    {
+        playerSpeed = boostedSpeed;
+
+        yield return new WaitForSeconds(duration);
+
+        playerSpeed = normalSpeed;
     }
 }
