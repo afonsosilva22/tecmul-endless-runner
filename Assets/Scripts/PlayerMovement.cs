@@ -3,15 +3,12 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed;
-    public float normalSpeed = 4f;
-    public float boostedSpeed = 8f;
+    public float playerSpeed = 4f;
+    public float speedBoost = 4f;
     public float speedIncreaseRate = 0.1f;
-
 
     public float horizontalSpeed = 5;
     public float jumpForce = 6;
-
 
     public float leftBoundary = -6f;
     public float rightBoundary = 6f;
@@ -25,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-        playerSpeed = normalSpeed;
     }
 
     void Update()
@@ -91,10 +87,10 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SpeedBoost(float duration)
     {
-        playerSpeed = boostedSpeed;
+        playerSpeed += speedBoost;
 
         yield return new WaitForSeconds(duration);
 
-        playerSpeed = normalSpeed;
+        playerSpeed -= speedBoost;
     }
 }

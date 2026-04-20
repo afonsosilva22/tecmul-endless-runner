@@ -131,8 +131,8 @@ GameObject:
   - component: {fileID: 12412371}
   - component: {fileID: 12412370}
   - component: {fileID: 12412369}
-  - component: {fileID: 12412368}
   - component: {fileID: 12412373}
+  - component: {fileID: 12412368}
   - component: {fileID: 12412374}
   m_Layer: 0
   m_Name: Player
@@ -156,6 +156,7 @@ MonoBehaviour:
   playerSpeed: 4
   normalSpeed: 4
   boostedSpeed: 8
+  speedIncreaseRate: 0.1
   horizontalSpeed: 5
   jumpForce: 7
   leftBoundary: -6
