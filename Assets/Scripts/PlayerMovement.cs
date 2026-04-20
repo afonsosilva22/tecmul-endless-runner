@@ -6,8 +6,13 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed;
     public float normalSpeed = 4f;
     public float boostedSpeed = 8f;
+    public float speedIncreaseRate = 0.1f;
+
+
     public float horizontalSpeed = 5;
     public float jumpForce = 6;
+
+
     public float leftBoundary = -6f;
     public float rightBoundary = 6f;
 
@@ -49,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             animator.SetBool("isJumping", true);
         }
+
+        playerSpeed += speedIncreaseRate * Time.deltaTime;
     }
 
     void OnCollisionEnter(Collision collision)
