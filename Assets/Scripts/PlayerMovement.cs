@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public float speedIncreaseRate = 0.1f;
 
     public float horizontalSpeed = 5;
+
     public float jumpForce = 6;
+    public float jumpBoost = 6f;
 
     public float leftBoundary = -6f;
     public float rightBoundary = 6f;
@@ -16,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded = true;
     private Animator animator;
+
     private Coroutine speedCoroutine;
+    private Coroutine jumpCoroutine;
 
     void Start()
     {
@@ -92,5 +96,24 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         playerSpeed -= speedBoost;
+    }
+
+    public void ActivateJumpBoost(float duration)
+    {
+        if (jumpCoroutine != null)
+        {
+            StopCoroutine(jumpCoroutine);
+        }
+    
+        jumpCoroutine = StartCoroutine(JumpBoost(duration));
+    }
+
+    IEnumerator JumpBoost(float duration)
+    {
+        jumpForce += jumpBoost;
+
+        yield return new WaitForSeconds(duration);
+
+        jumpForce -= jumpBoost;
     }
 }
