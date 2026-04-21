@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class CoinCollection : MonoBehaviour
+public class CoinPowerUp : MonoBehaviour
 {
-    public int value = 1;
-    
+    public float duration = 10f;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            ScoreManager.instance.AddScore(value);
+            ScoreManager.instance.ActivateMultiplier(duration);
             Destroy(gameObject);
         }
     }

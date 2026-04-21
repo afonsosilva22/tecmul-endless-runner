@@ -7,8 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public float speedBoost = 4f;
     public float speedIncreaseRate = 0.1f;
 
-    
-
     public float horizontalSpeed = 5;
 
     public float jumpForce = 6;
@@ -27,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine speedCoroutine;
     private Coroutine jumpCoroutine;
     private Coroutine shieldCoroutine;
-
 
     void Start()
     {
