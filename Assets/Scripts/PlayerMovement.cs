@@ -7,10 +7,15 @@ public class PlayerMovement : MonoBehaviour
     public float speedBoost = 4f;
     public float speedIncreaseRate = 0.1f;
 
+    
+
     public float horizontalSpeed = 5;
 
     public float jumpForce = 6;
     public float jumpBoost = 6f;
+
+    public float shieldDuration = 10f;
+    private bool hasShield = false;
 
     public float leftBoundary = -6f;
     public float rightBoundary = 6f;
@@ -21,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Coroutine speedCoroutine;
     private Coroutine jumpCoroutine;
+    private Coroutine shieldCoroutine;
+
 
     void Start()
     {
@@ -72,8 +79,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (contact.normal.y < 0.5f)
                 {
+                    if (hasShield)
+                    {
+                        Destroy(collision.gameObject);
+                        hasShield = false;
+
+                        if (shieldCoroutine != null)
+                        {
+                            StopCoroutine(shieldCoroutine);
+                        }
+
+                        Debug.Log("Shield used!");
+                        return;
+                    }
+                    else
+                    {
                     Debug.Log("Game Over!");
                     Time.timeScale = 0;
+                    }
                 }
             }
         }
@@ -115,5 +138,24 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         jumpForce -= jumpBoost;
+    }
+
+    public void ActivateShield(float duration)
+    {   
+        if (shieldCoroutine != null)
+        {
+            StopCoroutine(shieldCoroutine);
+        }
+
+        shieldCoroutine = StartCoroutine(Shield(duration));
+    }
+
+    IEnumerator Shield(float duration)
+    {
+        hasShield = true;
+
+        yield return new WaitForSeconds(duration);
+
+        hasShield = false;
     }
 }
