@@ -6,11 +6,15 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public int score = 0;
+
+    private Transform player;
+    private float startZ;
     
     public int coinMultiplier = 1;
     public Coroutine multiplierCoroutine;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI distanceText;
 
     void Awake()
     {
@@ -20,6 +24,19 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         UpdateScoreUI();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        startZ = player.position.z;
+    }
+
+    void Update()
+    {
+        if (player == null)
+        {
+            return;
+        }
+
+        float distance = player.position.z - startZ;
+        distanceText.text = "Distance: " + Mathf.FloorToInt(distance) + "m";
     }
 
     public void AddScore(int amount)
