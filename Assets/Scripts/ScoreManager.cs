@@ -5,7 +5,8 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public int score = 0;
+    public int coins = 0;
+    private float distance = 0f;
 
     private Transform player;
     private float startZ;
@@ -13,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     public int coinMultiplier = 1;
     public Coroutine multiplierCoroutine;
 
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI coinText;
     public TextMeshProUGUI distanceText;
 
     void Awake()
@@ -23,31 +24,36 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        UpdateScoreUI();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         startZ = player.position.z;
+        UpdateScoreUI();
     }
 
     void Update()
     {
         if (player == null)
-        {
+        { 
             return;
         }
 
-        float distance = player.position.z - startZ;
+        distance = player.position.z - startZ;
         distanceText.text = "Distance: " + Mathf.FloorToInt(distance) + "m";
+        UpdateScoreUI();
     }
 
-    public void AddScore(int amount)
+    public void AddCoin(int amount)
     {
-        score += amount * coinMultiplier;
-        UpdateScoreUI();
+        coins += amount * coinMultiplier;
+    }
+
+    public int GetScore()
+    {
+        return Mathf.FloorToInt(coins + distance * 0.25f);
     }
 
     void UpdateScoreUI()
     {
-        scoreText.text = "Coins: " + score;
+        coinText.text = "Coins: " + coins;
     }
 
     public void ActivateMultiplier(float duration)

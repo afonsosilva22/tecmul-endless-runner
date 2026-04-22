@@ -91,8 +91,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                    Debug.Log("Game Over!");
-                    Time.timeScale = 0;
+                    GameOverMenu.instance.ShowGameOver();
                     }
                 }
             }
