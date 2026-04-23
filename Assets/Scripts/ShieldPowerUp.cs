@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ShieldPowerUp : MonoBehaviour
 {
     public float duration = 10f;
+    [SerializeField] AudioSource shieldSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -14,7 +16,8 @@ public class ShieldPowerUp : MonoBehaviour
             {
                 player.ActivateShield(duration);
             }
-
+            
+            shieldSound.Play();
             Destroy(gameObject);
         }
     }

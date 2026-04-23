@@ -3,6 +3,7 @@ using UnityEngine;
 public class JumpPowerUp : MonoBehaviour
 {
     public float duration = 10f;
+    [SerializeField] AudioSource jumpSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,8 @@ public class JumpPowerUp : MonoBehaviour
             {
                 player.ActivateJumpBoost(duration);
             }
-
+            
+            jumpSound.Play();
             Destroy(gameObject);
         }
     }
