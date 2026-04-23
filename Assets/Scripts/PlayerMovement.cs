@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Threading;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -119,6 +118,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ActivateSpeedBoost(float duration)
     {
+        ScoreManager.instance.speedTimer = duration;
+
         if (speedCoroutine != null)
         {
             StopCoroutine(speedCoroutine);
@@ -138,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ActivateJumpBoost(float duration)
     {
+        ScoreManager.instance.jumpTimer = duration;
+
         if (jumpCoroutine != null)
         {
             StopCoroutine(jumpCoroutine);
@@ -157,6 +160,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ActivateShield(float duration)
     {   
+        ScoreManager.instance.shieldTimer = duration;
+        
         if (shieldCoroutine != null)
         {
             StopCoroutine(shieldCoroutine);
