@@ -1,8 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Threading;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerAnimation;
+    [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] AudioSource gameOverSound;
+
     public float playerSpeed = 4f;
     public float speedBoost = 4f;
     public float speedIncreaseRate = 0.1f;
@@ -91,11 +97,24 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
-                    GameOverMenu.instance.ShowGameOver();
+                        player.GetComponent<PlayerMovement>().enabled = false;
+                        StartCoroutine(PlayDeathSequence());
                     }
                 }
             }
         }
+    }
+
+    IEnumerator PlayDeathSequence()
+    {
+        Animator animator = playerAnimation.GetComponent<Animator>();
+        animator.Play("Stumble Backwards");
+        backgroundMusic.Stop();
+        gameOverSound.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        GameOverMenu.instance.ShowGameOver();
     }
 
     public void ActivateSpeedBoost(float duration)
