@@ -44,7 +44,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         distance = player.position.z - startZ;
-        distanceText.text = "Distance: " + Mathf.FloorToInt(distance) + "m";
+        distanceText.text = "" + Mathf.FloorToInt(distance) + "m";
         UpdateTimers();
         UpdatePowerUpUI();
         UpdateScoreUI();
@@ -62,7 +62,7 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreUI()
     {
-        coinText.text = "Coins: " + coins;
+        coinText.text = "" + coins;
     }
 
     void UpdateTimers()

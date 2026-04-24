@@ -77,31 +77,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            foreach (ContactPoint contact in collision.contacts)
+            if (hasShield)
             {
-                if (contact.normal.y < 0.5f)
+                Destroy(collision.gameObject);
+                hasShield = false;
+
+                if (shieldCoroutine != null)
                 {
-                    if (hasShield)
-                    {
-                        Destroy(collision.gameObject);
-                        hasShield = false;
-
-                        if (shieldCoroutine != null)
-                        {
-                            StopCoroutine(shieldCoroutine);
-                        }
-
-                        ScoreManager.instance.shieldTimer = 0f;
-
-                        Debug.Log("Shield used!");
-                        return;
-                    }
-                    else
-                    {
-                        player.GetComponent<PlayerMovement>().enabled = false;
-                        StartCoroutine(PlayDeathSequence());
-                    }
+                    StopCoroutine(shieldCoroutine);
                 }
+
+                ScoreManager.instance.shieldTimer = 0f;
+
+                Debug.Log("Shield used!");
+                return;
+            }
+            else
+            {
+                player.GetComponent<PlayerMovement>().enabled = false;
+                StartCoroutine(PlayDeathSequence());
             }
         }
     }
