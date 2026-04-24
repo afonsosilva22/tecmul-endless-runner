@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject playerAnimation;
     [SerializeField] AudioSource backgroundMusic;
     [SerializeField] AudioSource gameOverSound;
+    [SerializeField] GameObject mainCamera;
 
     public float playerSpeed = 4f;
     public float speedBoost = 4f;
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private bool isGrounded = true;
-    private Animator animator;
+    public Animator animator;
 
     private Coroutine speedCoroutine;
     private Coroutine jumpCoroutine;
@@ -34,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -91,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
                             StopCoroutine(shieldCoroutine);
                         }
 
+                        ScoreManager.instance.shieldTimer = 0f;
+
                         Debug.Log("Shield used!");
                         return;
                     }
@@ -108,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Animator animator = playerAnimation.GetComponent<Animator>();
         animator.Play("Stumble Backwards");
+        mainCamera.GetComponent<Animator>().Play("CollisionCamera");
         backgroundMusic.Stop();
         gameOverSound.Play();
 
