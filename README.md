@@ -38,3 +38,20 @@ Enquanto percorre o caminho, o jogador pode deparar-se com alguns "Power Ups", e
 
 # Assets multimédia:
 
+- Textures
+    - IconCoin.png, 408KB
+    - IconRunning.png, 5.7KB
+- Audio
+    - BackgroundMusic.mp3, 3.9MB
+    - CoinEffect.wav, 283 KB
+    - JumpSound.wav,339 KB
+    - ShieldSound.wav, 178 KB
+    - SpeedSound.wav, 355 KB
+    - GameOverSound.wav, 705 KB
+    - CoinPowerUpSound.wav, 294 KB
+ 
+Para a música de background, é utilizado o formato .mp3, pois este usa compressão com perdas, o que diminui o tamanho dos ficheiros mas perda alguma qualidade de som.
+Já nos efeitos de som, é utilizado o formato .wav, pois sendo estes áudios mais curtos, podemos usar este formato para fornecer melhor qualidade de som, pois não vão ocupar muito espaço.
+
+- Characters
+    - Aj@Running.fbx, 7MB
