@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 519974796596659617, guid: 996928e6bd7f53b4c922c5099f203847, type: 3}
       propertyPath: m_Name
-      value: SpeedChevRed Variant
+      value: JumpPU
       objectReference: {fileID: 0}
     - target: {fileID: 899738053168111387, guid: 996928e6bd7f53b4c922c5099f203847, type: 3}
       propertyPath: m_LocalScale.x
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpPowerUp
   duration: 10
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 196f0f3faeec36b4fbd25a2d7c636112, type: 3}
 --- !u!114 &2248860035931625623
 MonoBehaviour:
   m_ObjectHideFlags: 0

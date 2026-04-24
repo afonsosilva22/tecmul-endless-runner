@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2241973402649285381, guid: 61c7dcd8337158a468821e9b631f2689, type: 3}
       propertyPath: m_Name
-      value: GoldPile Variant
+      value: CoinPU
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8004079475852500337, guid: 61c7dcd8337158a468821e9b631f2689, type: 3}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinPowerUp
   duration: 10
-  coinPowerUpSound: {fileID: 0}
+  coinPowerUpSound: {fileID: 8300000, guid: 3bd6acf9325b0ed4bb35f4dc8a87bf92, type: 3}
 --- !u!114 &464141747205698487
 MonoBehaviour:
   m_ObjectHideFlags: 0

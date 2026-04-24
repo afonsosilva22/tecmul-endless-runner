@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpeedPowerUp : MonoBehaviour
 {
     public float duration = 10f;
-    [SerializeField] AudioSource speedSound;
+    [SerializeField] AudioClip speedSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -16,7 +16,7 @@ public class SpeedPowerUp : MonoBehaviour
                 player.ActivateSpeedBoost(duration);
             }
 
-            speedSound.Play();
+            AudioSource.PlayClipAtPoint(speedSound, transform.position);
             Destroy(gameObject);
         }
     }

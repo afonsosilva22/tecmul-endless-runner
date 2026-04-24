@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6954758372675618198, guid: 6a301d09debaf1e4a8d3e2657cc44a96, type: 3}
       propertyPath: m_Name
-      value: Coin (1) Variant
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 7768589822984281900, guid: 6a301d09debaf1e4a8d3e2657cc44a96, type: 3}
       propertyPath: m_LocalScale.x
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinCollection
   value: 1
-  coinSound: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: f933cfd7ee7a2484899cc2c2fc8021ce, type: 3}
 --- !u!114 &432566747102030550
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShieldPowerUp : MonoBehaviour
 {
     public float duration = 10f;
-    [SerializeField] AudioSource shieldSound;
+    [SerializeField] AudioClip shieldSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -17,7 +17,7 @@ public class ShieldPowerUp : MonoBehaviour
                 player.ActivateShield(duration);
             }
             
-            shieldSound.Play();
+            AudioSource.PlayClipAtPoint(shieldSound, transform.position);
             Destroy(gameObject);
         }
     }

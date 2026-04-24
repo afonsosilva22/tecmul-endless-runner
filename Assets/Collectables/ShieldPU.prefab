@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621584630249350254, guid: af9d1131c788d454fa7dae4544fa99d2, type: 3}
       propertyPath: m_Name
-      value: Heart Variant
+      value: ShieldPU
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 757868001915144391, guid: af9d1131c788d454fa7dae4544fa99d2, type: 3}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShieldPowerUp
   duration: 10
-  shieldSound: {fileID: 0}
+  shieldSound: {fileID: 8300000, guid: 9d07c5e347111eb42b6a90cac3af947c, type: 3}
 --- !u!114 &7997101570893821073
 MonoBehaviour:
   m_ObjectHideFlags: 0

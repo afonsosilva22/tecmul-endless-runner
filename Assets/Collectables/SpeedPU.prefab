@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225455176718880169, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       propertyPath: m_Name
-      value: Thunder Variant
+      value: SpeedPU
       objectReference: {fileID: 0}
     - target: {fileID: 6377430005063622566, guid: 59fd80584945fc7448940995b97dab30, type: 3}
       propertyPath: isScaling
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedPowerUp
   duration: 10
-  speedSound: {fileID: 0}
+  speedSound: {fileID: 8300000, guid: 621f0c1138bb69f4789c8e0258d8eb92, type: 3}
 --- !u!114 &7463451564507822907
 MonoBehaviour:
   m_ObjectHideFlags: 0
